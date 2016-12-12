@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="BlocoDeAnotacoes.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BlocoDeAnotacoes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Right" Height="40" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,10,10,0" Width="340">
+            <TextBox x:Name="txtBusca" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Busca" Height="40" Width="164" TextChanged="txtBusca_TextChanged" />
+            <Button x:Name="btnAdicionar" Content="Adicionar" VerticalAlignment="Stretch" Click="btnAdicionar_Click" />
+        </StackPanel>
+        <Grid HorizontalAlignment="Left" Height="541" Margin="10,60,10,10" VerticalAlignment="Top">
+            <ListBox x:Name="lstNotas" ItemsSource="{Binding}"  SelectionChanged="lstNotas_SelectionChanged" Background="White" DragLeave="lstNotas_DragLeave">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="txtTitulo"  Height="30" FontSize="18" Text="{Binding Titulo}"/>
+                            <TextBlock x:Name="txtDescricao"  Height="Auto" FontSize="18" Text="{Binding Descricao}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+    </Grid>
+</Page>

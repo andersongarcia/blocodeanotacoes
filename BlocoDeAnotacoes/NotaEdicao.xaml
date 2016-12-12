@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="BlocoDeAnotacoes.NotaEdicao"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BlocoDeAnotacoes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <StackPanel HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="340" Orientation="Horizontal" Margin="10,10,10,0">
+                <Button x:Name="btnSalvar" Content="Salvar" VerticalAlignment="Stretch" Click="btnSalvar_Click"/>
+                <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnExcluir_Click"/>
+            </StackPanel>
+            <TextBox x:Name="txtTitulo" TextWrapping="Wrap" Text="" ToolTipService.ToolTip="" PlaceholderText="Digite o título" />
+            <StackPanel Orientation="Horizontal">
+                <AppBarToggleButton x:Name="tglPrioridade" HorizontalAlignment="Stretch" Icon="Important" Label="appbartogglebutton" VerticalAlignment="Stretch" Width="Auto" Height="25"/>
+                <TextBlock x:Name="txbPrioridade" Text="Prioridade" />
+            </StackPanel>
+            <TextBox x:Name="txtDescricao" AcceptsReturn="True" TextWrapping="Wrap" Text="" ToolTipService.ToolTip="" PlaceholderText="Digite sua anotação" Height="521" />
+
+        </StackPanel>
+
+    </Grid>
+</Page>
