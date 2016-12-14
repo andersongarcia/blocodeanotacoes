@@ -28,12 +28,7 @@ namespace BlocoDeAnotacoes
             List<Nota> notas = NotaDAO.Listar();
             lstNotas.DataContext = notas;
         }
-
-        private void btnAdicionar_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NotaEdicao), null);
-        }
-
+        
         private void lstNotas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Nota nota = lstNotas.SelectedItem as Nota;
@@ -43,8 +38,7 @@ namespace BlocoDeAnotacoes
 
         private void txtBusca_TextChanged(object sender, TextChangedEventArgs e)
         {
-            List<Nota> notas = NotaDAO.Buscar(txtBusca.Text);
-            lstNotas.DataContext = notas;
+            appBarBtnBuscar_Click(sender, e);
         }
 
         private void lstNotas_DragLeave(object sender, DragEventArgs e)
@@ -52,6 +46,18 @@ namespace BlocoDeAnotacoes
             Nota nota = lstNotas.SelectedItem as Nota;
 
             NotaDAO.Remover(nota);
+        }
+        
+        private void appBarBtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            List<Nota> notas = NotaDAO.Buscar(txtBusca.Text);
+            lstNotas.DataContext = notas;
+
+        }
+
+        private void appBarBtnAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NotaEdicao), null);
         }
     }
 }

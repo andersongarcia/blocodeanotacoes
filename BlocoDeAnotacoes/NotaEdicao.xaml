@@ -9,16 +9,16 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical">
-            <StackPanel HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="340" Orientation="Horizontal" Margin="10,10,10,0">
-                <Button x:Name="btnSalvar" Content="Salvar" VerticalAlignment="Stretch" Click="btnSalvar_Click"/>
-                <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnExcluir_Click"/>
+            <StackPanel HorizontalAlignment="Right" Height="45" VerticalAlignment="Top" Orientation="Horizontal" Margin="10,10,10,0">
+                <AppBarButton x:Name="appBarBtnExcluir" HorizontalAlignment="Stretch" Label="" VerticalAlignment="Stretch" Width="40" ToolTipService.ToolTip="Adicionar" Icon="Delete" Click="appBarBtnExcluir_Click"/>
+                <AppBarButton x:Name="appBarBtnSalvar" HorizontalAlignment="Stretch" Icon="Save" Label="" VerticalAlignment="Stretch" Width="40" ToolTipService.ToolTip="Salvar" Click="appBarBtnSalvar_Click"/>
             </StackPanel>
             <TextBox x:Name="txtTitulo" TextWrapping="Wrap" Text="" ToolTipService.ToolTip="" PlaceholderText="Digite o título" />
+            <TextBox x:Name="txtDescricao" AcceptsReturn="True" TextWrapping="Wrap" Text="" ToolTipService.ToolTip="" PlaceholderText="Digite sua anotação" Height="510" />
             <StackPanel Orientation="Horizontal">
-                <AppBarToggleButton x:Name="tglPrioridade" HorizontalAlignment="Stretch" Icon="Important" Label="appbartogglebutton" VerticalAlignment="Stretch" Width="Auto" Height="25"/>
-                <TextBlock x:Name="txbPrioridade" Text="Prioridade" />
+                <AppBarToggleButton x:Name="tglPrioridade" HorizontalAlignment="Stretch" Icon="Important" FlowDirection="LeftToRight" VerticalAlignment="Stretch" Width="40" Height="45" FontSize="15"/>
+                <TextBlock x:Name="txbPrioridade" Text="Prioridade" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
-            <TextBox x:Name="txtDescricao" AcceptsReturn="True" TextWrapping="Wrap" Text="" ToolTipService.ToolTip="" PlaceholderText="Digite sua anotação" Height="521" />
 
         </StackPanel>
 
