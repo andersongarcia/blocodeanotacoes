@@ -1,6 +1,4 @@
 ﻿using System;
-using Windows.Storage.Streams;
-using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -40,8 +38,6 @@ namespace BlocoDeAnotacoes
         {
             txtTitulo.Text = this.nota.Titulo;
             txtDescricao.Text = this.nota.Descricao;
-            /*if (this.nota.Descricao != null)
-                richEditor.Document.SetText(TextSetOptions.FormatRtf, this.nota.Descricao);*/
             tglPrioridade.IsChecked = this.nota.Prioridade;
         }
 
@@ -52,8 +48,6 @@ namespace BlocoDeAnotacoes
 
         private async void SalvarNota()
         {
-            /*string texto;
-            richEditor.Document.GetText(TextGetOptions.FormatRtf, out texto);*/
             this.nota.Titulo = txtTitulo.Text;
             this.nota.Descricao = txtDescricao.Text;
             this.nota.Prioridade = tglPrioridade.IsChecked.HasValue ? tglPrioridade.IsChecked.Value : false;

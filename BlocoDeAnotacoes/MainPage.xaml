@@ -10,20 +10,24 @@
         <local:StringFormatConverter x:Name="StringFormat"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel HorizontalAlignment="Right" Height="45" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,10,10,0">
-            <TextBox x:Name="txtBusca" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" PlaceholderText="Busca" Height="45" TextChanged="txtBusca_TextChanged" Width="249" FontSize="20" />
-            <AppBarButton x:Name="appBarBtnBuscar" HorizontalAlignment="Stretch" Icon="Find" Label="" VerticalAlignment="Stretch" Width="40" ToolTipService.ToolTip="Buscar" Click="appBarBtnBuscar_Click"/>
-            <AppBarButton x:Name="appBarBtnAdicionar" HorizontalAlignment="Stretch" Label="" VerticalAlignment="Stretch" Width="40" ToolTipService.ToolTip="Adicionar" Icon="Add" Click="appBarBtnAdicionar_Click"/>
-        </StackPanel>
+        <Grid Height="45" Margin="10" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="txtBusca" Grid.Column="0" TextWrapping="Wrap" VerticalAlignment="Center" PlaceholderText="Busca" Height="45" TextChanged="txtBusca_TextChanged" Width="Auto" FontSize="20" />
+            <AppBarButton Grid.Column="1" x:Name="appBarBtnBuscar" HorizontalAlignment="Stretch" Icon="Find" Label="" VerticalAlignment="Stretch" Width="40" ToolTipService.ToolTip="Buscar" Click="appBarBtnBuscar_Click"/>
+            <AppBarButton Grid.Column="2" x:Name="appBarBtnAdicionar" HorizontalAlignment="Stretch" Label="" VerticalAlignment="Stretch" Width="40" ToolTipService.ToolTip="Adicionar" Icon="Add" Click="appBarBtnAdicionar_Click"/>
+        </Grid>
         <Grid HorizontalAlignment="Left" Margin="10,60,10,10" VerticalAlignment="Top">
             <ListBox x:Name="lstNotas" ItemsSource="{Binding}"  SelectionChanged="lstNotas_SelectionChanged" Background="White" DragLeave="lstNotas_DragLeave">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <Grid>
+                            <Grid HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -32,10 +36,8 @@
                                 <TextBlock x:Name="txbTitulo" Grid.Row="0" Grid.Column="0" Height="30" FontSize="18" Text="{Binding Titulo}" FontWeight="Bold" />
                                 <TextBlock x:Name="txbDataModificacao" Grid.Row="0" Grid.Column="1" Height="30" FontSize="18" HorizontalAlignment="Right" 
                                            Text="{Binding DataModificacao, Converter={StaticResource StringFormat}, ConverterParameter='{}{0:[dd/MM/yyyy HH:mm] }'}" FontWeight="Light" />
-                                <TextBlock x:Name="txbDescricao"  Grid.Row="1" Height="Auto" FontSize="18" Text="{Binding Descricao}" TextWrapping="Wrap" />
-
-                            </Grid>
-                        </StackPanel>
+                                <TextBlock x:Name="txbDescricao" Grid.Row="1" Grid.ColumnSpan="2" Height="Auto" FontSize="18" Text="{Binding DescricaoCurta}" TextWrapping="Wrap" />
+                        </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

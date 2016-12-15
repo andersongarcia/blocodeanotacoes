@@ -20,18 +20,9 @@
                         <Setter Property="IsCompact" Value="True"/>
                     </Style>
                 </RelativePanel.Resources>
-                <!--<AppBarButton x:Name="appBarBtnBold" Icon="Bold" Click="BoldButton_Click" ToolTipService.ToolTip="Bold" 
-                   RelativePanel.AlignLeftWithPanel="True" Margin="0,0,0,0"/>
-                <AppBarButton x:Name="italicButton" Icon="Italic" Click="ItalicButton_Click" 
-                   ToolTipService.ToolTip="Italic" RelativePanel.RightOf="appBarBtnBold" Margin="0,0,0,0"/>
-                <AppBarButton x:Name="underlineButton" Icon="Underline" Click="UnderlineButton_Click" 
-                   ToolTipService.ToolTip="Underline" RelativePanel.RightOf="italicButton"/>-->
-
 
                 <TextBox x:Name="txtDescricao" Height="200" TextWrapping="Wrap"
                   RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" PlaceholderText="Digite sua anotação" AcceptsReturn="True" />
-                <!--<RichEditBox x:Name="richEditor" Height="200" RelativePanel.Below="appBarBtnBold" 
-                  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" PlaceholderText="Digite sua anotação" />-->
             </RelativePanel>
             <StackPanel Orientation="Horizontal" Margin="20, 0">
                 <AppBarToggleButton x:Name="tglPrioridade" HorizontalAlignment="Stretch" Icon="Important" FlowDirection="LeftToRight" VerticalAlignment="Stretch" Width="40" Height="45" FontSize="15" />

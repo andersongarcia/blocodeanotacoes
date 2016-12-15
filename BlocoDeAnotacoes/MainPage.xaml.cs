@@ -25,7 +25,7 @@ namespace BlocoDeAnotacoes
 
         private void Listar()
         {
-            List<Nota> notas = NotaDAO.Listar();
+            List<Nota> notas = NotaDAO.Buscar(string.Empty);
             lstNotas.DataContext = notas;
         }
         
