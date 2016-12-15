@@ -33,8 +33,8 @@
                 <!--<RichEditBox x:Name="richEditor" Height="200" RelativePanel.Below="appBarBtnBold" 
                   RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" PlaceholderText="Digite sua anotação" />-->
             </RelativePanel>
-            <StackPanel Orientation="Horizontal">
-                <AppBarToggleButton x:Name="tglPrioridade" HorizontalAlignment="Stretch" Icon="Important" FlowDirection="LeftToRight" VerticalAlignment="Stretch" Width="40" Height="45" FontSize="15"/>
+            <StackPanel Orientation="Horizontal" Margin="20, 0">
+                <AppBarToggleButton x:Name="tglPrioridade" HorizontalAlignment="Stretch" Icon="Important" FlowDirection="LeftToRight" VerticalAlignment="Stretch" Width="40" Height="45" FontSize="15" />
                 <TextBlock x:Name="txbPrioridade" Text="Prioridade" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
 

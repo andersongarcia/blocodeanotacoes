@@ -35,7 +35,7 @@ namespace BlocoDeAnotacoes
         {
             var notas = conn.Query<Nota>(
                 "SELECT Id, Titulo, Descricao, DataModificacao, Prioridade FROM Nota " +
-                "ORDER BY Prioridade, DataModificacao DESC");
+                "ORDER BY Prioridade DESC, DataModificacao DESC");
 
             return notas.ToList();
         }

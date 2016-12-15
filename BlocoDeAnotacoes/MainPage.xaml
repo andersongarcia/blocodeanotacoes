@@ -31,7 +31,7 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock x:Name="txbTitulo" Grid.Row="0" Grid.Column="0" Height="30" FontSize="18" Text="{Binding Titulo}" FontWeight="Bold" />
                                 <TextBlock x:Name="txbDataModificacao" Grid.Row="0" Grid.Column="1" Height="30" FontSize="18" HorizontalAlignment="Right" 
-                                           Text="{Binding DataModificacao, Converter={StaticResource StringFormat}, ConverterParameter='{}{0:[dd/MM/yyyy] }'}" FontWeight="Light" />
+                                           Text="{Binding DataModificacao, Converter={StaticResource StringFormat}, ConverterParameter='{}{0:[dd/MM/yyyy HH:mm] }'}" FontWeight="Light" />
                                 <TextBlock x:Name="txbDescricao"  Grid.Row="1" Height="Auto" FontSize="18" Text="{Binding Descricao}" TextWrapping="Wrap" />
 
                             </Grid>
