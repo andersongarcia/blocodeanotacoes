@@ -9,7 +9,7 @@ namespace BlocoDeAnotacoes
     class NotaDAO
     {
         private static SQLiteConnection conn;
-        private const string dbFilename = "blocoDeAnotacoes.db";
+        private const string dbFilename = "anotacoes.db";
 
         public static void LoadDatabase()
         {
@@ -33,7 +33,9 @@ namespace BlocoDeAnotacoes
 
         internal static List<Nota> Listar()
         {
-            var notas = conn.Query<Nota>("SELECT Id, Titulo, Descricao, DataModificacao, Prioridade FROM Nota");
+            var notas = conn.Query<Nota>(
+                "SELECT Id, Titulo, Descricao, DataModificacao, Prioridade FROM Nota " +
+                "ORDER BY Prioridade, DataModificacao DESC");
 
             return notas.ToList();
         }
@@ -59,7 +61,8 @@ namespace BlocoDeAnotacoes
         {
             var notas = conn.Query<Nota>(
                 "SELECT Id, Titulo, Descricao, DataModificacao, Prioridade " + 
-                "FROM Nota WHERE LOWER(Titulo) LIKE '%" + texto.ToLower() + "%' OR LOWER(Descricao) LIKE '%" + texto.ToLower() + "%'");
+                "FROM Nota WHERE LOWER(Titulo) LIKE '%" + texto.ToLower() + "%' OR LOWER(Descricao) LIKE '%" + texto.ToLower() + "%' " +
+                "ORDER BY Prioridade, DataModificacao DESC");
 
             List<Nota> lista = new List<Nota>();
 

@@ -1,4 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.Storage.Streams;
+using Windows.UI.Text;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -37,11 +40,20 @@ namespace BlocoDeAnotacoes
         {
             txtTitulo.Text = this.nota.Titulo;
             txtDescricao.Text = this.nota.Descricao;
+            /*if (this.nota.Descricao != null)
+                richEditor.Document.SetText(TextSetOptions.FormatRtf, this.nota.Descricao);*/
             tglPrioridade.IsChecked = this.nota.Prioridade;
         }
 
         private void appBarBtnSalvar_Click(object sender, RoutedEventArgs e)
         {
+            SalvarNota();
+        }
+
+        private async void SalvarNota()
+        {
+            /*string texto;
+            richEditor.Document.GetText(TextGetOptions.FormatRtf, out texto);*/
             this.nota.Titulo = txtTitulo.Text;
             this.nota.Descricao = txtDescricao.Text;
             this.nota.Prioridade = tglPrioridade.IsChecked.HasValue ? tglPrioridade.IsChecked.Value : false;
@@ -56,5 +68,49 @@ namespace BlocoDeAnotacoes
             NotaDAO.Remover(nota);
             Frame.Navigate(typeof(MainPage));
         }
+
+        #region Editor
+
+        /*private void BoldButton_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Text.ITextSelection selectedText = richEditor.Document.Selection;
+            if (selectedText != null)
+            {
+                Windows.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+                charFormatting.Bold = Windows.UI.Text.FormatEffect.Toggle;
+                selectedText.CharacterFormat = charFormatting;
+            }
+        }
+
+        private void ItalicButton_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Text.ITextSelection selectedText = richEditor.Document.Selection;
+            if (selectedText != null)
+            {
+                Windows.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+                charFormatting.Italic = Windows.UI.Text.FormatEffect.Toggle;
+                selectedText.CharacterFormat = charFormatting;
+            }
+        }
+
+        private void UnderlineButton_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Text.ITextSelection selectedText = richEditor.Document.Selection;
+            if (selectedText != null)
+            {
+                Windows.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+                if (charFormatting.Underline == Windows.UI.Text.UnderlineType.None)
+                {
+                    charFormatting.Underline = Windows.UI.Text.UnderlineType.Single;
+                }
+                else
+                {
+                    charFormatting.Underline = Windows.UI.Text.UnderlineType.None;
+                }
+                selectedText.CharacterFormat = charFormatting;
+            }
+        }*/
+
+        #endregion
     }
 }
